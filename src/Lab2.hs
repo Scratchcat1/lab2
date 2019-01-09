@@ -9,39 +9,41 @@ module Lab2 where
 
 -- 1. Using the [n..m] syntax for lists, define a list of the numbers 0 to 10.
 zeroToTen :: (Num a, Enum a) => [a]
-zeroToTen = undefined
+zeroToTen = [0..10]
 
 -- 2. Using the [n..m] syntax for lists, define a list of the numbers 4 to 8.
 fourToEight :: (Num a, Enum a) => [a]
-fourToEight = undefined
+fourToEight = [4..8]
 
 -- 3. Using the [n..m] syntax for lists, define a list of the lower-case
 -- characters from 'a' to 'z'.
 lowercase :: [Char]
-lowercase = undefined
+lowercase = ['a'..'z']
 
 -- 4. Using a list comprehension, define a list of the powers of two for
 -- the exponents from 1 to 10.
 powersOfTwo :: Num a => [a]
-powersOfTwo = undefined
+powersOfTwo = [2^x | x <- [1..10]]
 
 -- 5. Using a list comprehension, define a list of the factorials of the
 -- numbers 1 to 10.
 factorials :: [Int]
-factorials = undefined
+factorials = [fac x | x <- [1..10]]
     where
-        fac = undefined
+        fac x = case x of
+          1 -> 1
+          otherwise -> x * fac (x - 1)
 
 -- 6. Using a list comprehension, define a list of coordinates where the top
 -- left corner is (0,0) and the bottom right is (10,10).
 coords :: (Num a, Enum a) => [(a,a)]
-coords = undefined
+coords = [(x, y) | x <- [0..10], y <- [0..10]]
 
 -- 7. Using a list comprehension, define a list of all pairs where both sections
 -- are in the range from 0 to 5, such that the sum of both sections never
 -- exceeds 5.
 noMoreThanFive :: (Num a, Enum a) => [(a,a)]
-noMoreThanFive = undefined
+noMoreThanFive = [(x, y) | x <- [0..10], y <- [0..10], x + y <= 5]
 
 -- 8. Using a list comprehension with a predicate, define a list of all even
 -- numbers from 0 to 100.
