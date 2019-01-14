@@ -42,18 +42,18 @@ coords = [(x, y) | x <- [0..10], y <- [0..10]]
 -- 7. Using a list comprehension, define a list of all pairs where both sections
 -- are in the range from 0 to 5, such that the sum of both sections never
 -- exceeds 5.
-noMoreThanFive :: (Num a, Enum a) => [(a,a)]
+noMoreThanFive :: (Num a, Enum a, Ord a) => [(a,a)]
 noMoreThanFive = [(x, y) | x <- [0..10], y <- [0..10], x + y <= 5]
 
 -- 8. Using a list comprehension with a predicate, define a list of all even
 -- numbers from 0 to 100.
 evens :: [Int]
-evens = undefined
+evens = [x | x <- [0..100], even x]
 
 -- 9. Write a function which, given some natural number n, produces a list of
 -- all multiples of 3 and 5 in the range of 0 to n (inclusive). For example,
 -- multiples 10 = [0,3,5,6,9,10]
 multiples :: Int -> [Int]
-multiples n = undefined
+multiples n = [x | x <- [0..n], mod x 3 == 0 || mod x 5 == 0]
 
 --------------------------------------------------------------------------------
